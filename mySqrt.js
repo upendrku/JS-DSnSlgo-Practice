@@ -24,20 +24,22 @@ var mySqrt = function(x) {
     // }
 
     //  Binary Search Solution
-    if(x < 2) return x;
-
-    let result = 0;
-    let start = 1;
-    let end = x/2; // 2
-
-    while(start <= end){
-        let mid = Math.floor(start + (end - start)/2); // 1 + 0.5 // 1 // 2
-        let sqr = mid * mid;
-        if(sqr == x) return mid;
-        else if(sqr < x) { start = mid + 1; result = mid; } // start = 2, result = 1
-        else end = mid - 1;
+    if (x < 2) return x;
+    let left = 1;
+    let right = Math.floor(x / 2);
+    
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+        
+        if (mid * mid === x) {
+            return mid
+        } else if (mid * mid > x) {
+            right = mid - 1;
+        } else {
+            left = mid + 1;
+        }
     }
-    return result;
+    return right;
 };
 
 console.log(mySqrt(4))
