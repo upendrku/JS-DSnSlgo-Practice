@@ -27,6 +27,9 @@ function TreeNode(val, left, right) {
  * @return {number[]}
  */
 var inorderTraversal = function (root) {
+    if (root === null) {
+        return []
+    }
     let result = []
     traverse(root)
 
