@@ -55,3 +55,15 @@ var hasPathSum = function (root, targetSum) {
 
     return isPathSum
 };
+
+// Better
+var hasPathSum = function (root, targetSum) {
+    if (!root) return false
+
+    if (!root.left && !root.right && targetSum - root.val === 0) return true
+
+    const isLeftTreeHasPathSum = hasPathSum(root.left, targetSum - root.val)
+    const isRightTreeHasPathSum = hasPathSum(root.right, targetSum - root.val)
+
+    return isLeftTreeHasPathSum || isRightTreeHasPathSum
+};
