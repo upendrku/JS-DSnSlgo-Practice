@@ -14,11 +14,11 @@ Sample Output
 [-1, 11] // the numbers could be in reverse order */
 
 const twoNumberSum = (array, targetSum) => {
-    const sortedArray = array.sort((a ,b) => a - b)
+    const sortedArray = array.sort((a, b) => a - b)
     // sorted array - [-4, -1, 1, 3, 5, 6, 8, 11]
     let result = []
-    let leftIndex = 0, rightIndex = sortedArray.length -1
-    while(leftIndex < rightIndex) {
+    let leftIndex = 0, rightIndex = sortedArray.length - 1
+    while (leftIndex < rightIndex) {
         const currentSum = sortedArray[leftIndex] + sortedArray[rightIndex]
         if (currentSum === targetSum) {
             result.push(sortedArray[leftIndex], sortedArray[rightIndex])
@@ -29,6 +29,24 @@ const twoNumberSum = (array, targetSum) => {
         }
     }
     return result
+}
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (nums, target) {
+    let numsObj = {}
+
+    for (let i = 0; i < nums.length; i++) {
+        const otherNum = target - nums[i]
+        if (otherNum in numsObj) {
+            return [i, numsObj[otherNum]]
+        } else {
+            numsObj[nums[i]] = i
+        }
+    }
 }
 
 console.log(twoNumberSum([3, 5, -4, 8, 11, 1, -1, 6], 10))
