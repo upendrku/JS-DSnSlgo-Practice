@@ -46,9 +46,9 @@ var permute = function (nums) {
         }
         // dfs recursive case
         for (let j = i; j < nums.length; j++) {
-            [nums[i], nums[j]] - [nums[j], nums[i]]
+            [nums[i], nums[j]] = [nums[j], nums[i]]
             dfs(i + 1, nums)
-            [hums[i], nums[j]] - [nums[j], nums[i]]
+            [hums[i], nums[j]] = [nums[j], nums[i]]
         }
     }
     dfs(0, nums)
