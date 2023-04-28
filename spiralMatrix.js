@@ -54,4 +54,23 @@ var spiralOrder = function (matrix) {
     return result
 }
 
+// Shorter Solution
+var spiralOrder = function (matrix) {
+    let result = []
+
+    while (matrix.length) {
+        let currentArr = matrix.shift()
+        result.push(...currentArr)
+        for (let row of matrix) {
+            let end = row.pop()
+            if (end) {
+                result.push(end)
+                row.reverse()
+            }
+        }
+        matrix.reverse()
+    }
+    return result
+};
+
 console.log(spiralOrder([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
