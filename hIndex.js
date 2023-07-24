@@ -26,6 +26,19 @@ n == citations.length
  * @param {number[]} citations
  * @return {number}
  */
+// const hIndex = (citations) => {
+//     citations.sort((a, b) => a - b) //
+//     let i = citations.length
+
+//     while (i > 0) {
+//         const n = citations.filter(c => c >= i).length
+//         if (n >= i) {
+//             return i
+//         } else {
+//             i--
+//         }
+//     }
+// }
 var hIndex = function (citations) {
     let i = 0
     let j = citations.length - 1
@@ -38,5 +51,8 @@ var hIndex = function (citations) {
     return i
 };
 
+
+
 console.log(hIndex([3, 0, 6, 1, 5]))
 console.log(hIndex([1, 3, 1]))
+console.log(hIndex([1, 2, 4, 8, 9]))
