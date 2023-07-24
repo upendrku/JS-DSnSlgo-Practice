@@ -19,23 +19,24 @@ Explanation: The answer is "wke", with the length of 3.
 Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
 */
 
-var lengthOfLongestSubstring = function(str) {
+var lengthOfLongestSubstring = function (str) {
     let firstChrIdx = 0
     let longestSubStrChars = {}
     let longestSubStrLength = 0
-    if(str.length <= 1) return str.length
+    if (str.length <= 1) return str.length
     for (let i = 0; i < str.length; i++) {
         const ch = str[i];
-        if(longestSubStrChars[ch] >= firstChrIdx){
+        if (longestSubStrChars[ch] >= firstChrIdx) {
             firstChrIdx = longestSubStrChars[ch] + 1
         }
         longestSubStrChars[ch] = i
-        longestSubStrLength = Math.max(longestSubStrLength, i - firstChrIdx +  1)
-      }  
+        longestSubStrLength = Math.max(longestSubStrLength, i - firstChrIdx + 1)
+    }
+    console.log(longestSubStrChars)
     return longestSubStrLength
 };
 
 
 console.log(lengthOfLongestSubstring("abcabcbb"));
-console.log(lengthOfLongestSubstring("bbbbb"));
-console.log(lengthOfLongestSubstring("pwwkew"));
+// console.log(lengthOfLongestSubstring("bbbbb"));
+// console.log(lengthOfLongestSubstring("pwwkew"));
