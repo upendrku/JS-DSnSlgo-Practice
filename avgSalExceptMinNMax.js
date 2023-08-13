@@ -29,3 +29,25 @@ var average = function (salary) {
 
     return sum / (salary.length - 2)
 };
+
+// better one
+
+var average = function (salary) {
+    let max = -Infinity
+    let min = Infinity
+
+    let sum = 0
+
+    for (let i = 0; i < salary.length; i++) {
+        const curr = salary[i]
+
+        max = Math.max(max, curr)
+        min = Math.min(min, curr)
+
+        sum += curr
+    }
+
+    sum = sum - max - min
+
+    return sum / (salary.length - 2)
+};
